@@ -1,0 +1,35 @@
+from Crypto.Cipher import DES3
+
+from Crypto.Random import get_random_bytes
+
+import base64
+
+
+
+# Avoid Option 3
+
+while True:
+
+    try:
+
+        key = DES3.adjust_key_parity(get_random_bytes(24))
+
+        break
+
+    except ValueError:
+
+        pass
+
+
+iv = b'12345678' 
+cipher = DES3.new(key, DES3.MODE_CFB,iv=iv)
+
+
+
+plaintext = b'We are no longer the knights who say ni!'
+
+msg = cipher.iv + cipher.encrypt(plaintext)
+
+print(f" este es msg en hex {msg}")
+print(f" este es msg en base 64 ", base64.b64encode(msg).decode())
+
