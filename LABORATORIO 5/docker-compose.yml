@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  c1:
+    build:
+      context: ./c1
+    container_name: c1
+    ports:
+      - "2216:22"
+    tty: true
+
+  c2:
+    build:
+      context: ./c2
+    container_name: c2
+    ports:
+      - "2218:22"
+    tty: true
+
+  c3:
+    build:
+      context: ./c3
+    container_name: c3
+    ports:
+      - "2220:22"
+    tty: true
+
+  c4:
+    build:
+      context: ./c4
+    container_name: c4
+    ports:
+      - "2222:22"
+    tty: true
